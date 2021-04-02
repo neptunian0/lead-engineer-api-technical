@@ -3,36 +3,52 @@ package com.natwest.restservice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PrimesControllerTest {
-    private PrimesController primes;
-
     @BeforeEach
-    void setUp(){
-        primes = new PrimesController();
+    void setUp(){ } //TODO: Fill in for integration test
+
+    @Test
+    void negative() {
+        int n = -1;
+        Integer[] expectedPrimes = {};
+        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        assertArrayEquals(expectedPrimes, actualPrimes);
+    }
+
+    @Test
+    void belowMin() {
+        int n = 1;
+        Integer[] expectedPrimes = {};
+        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        assertArrayEquals(expectedPrimes, actualPrimes);
     }
 
     @Test
     void first() {
-        PrimeRequest request = new PrimeRequest(2);
-        long[] primesArray = {2};
-        long[] actualResponse = getPrimeResponse(request).getNumbers();
-        assertArrayEquals(primesArray, actualResponse);
+        int n = 2;
+        Integer[] expectedPrimes = {2};
+        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        assertArrayEquals(expectedPrimes, actualPrimes);
     }
 
     @Test
     void firstEight() {
-        PrimeRequest request = new PrimeRequest(30);
-        long[] primesArray = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
-        long[] actualResponse = getPrimeResponse(request).getNumbers();
-        assertArrayEquals(primesArray, actualResponse);
+        int n = 30;
+        Integer[] expectedPrimes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        assertArrayEquals(expectedPrimes, actualPrimes);
     }
 
     @Test
     void firstHundred() {
-        PrimeRequest request = new PrimeRequest(541);
-        long[] primesArray = {
+        int n = 541;
+        Integer[] expectedPrimes = {
                 2, 3, 5, 7, 11, 13, 17, 19, 23, 29,
                 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
                 73, 79, 83, 89, 97, 101, 103, 107, 109, 113,
@@ -44,15 +60,7 @@ class PrimesControllerTest {
                 419, 421, 431, 433, 439, 443, 449, 457, 461, 463,
                 467, 479, 487, 491, 499, 503, 509, 521, 523, 541
         };
-        long[] actualResponse = getPrimeResponse(request).getNumbers();
-        assertArrayEquals(primesArray, actualResponse);
-    }
-
-    PrimeResponse getPrimeResponse(PrimeRequest request){
-        Object actualResponseObject = primes.primes(request).getBody();
-        if(!(actualResponseObject instanceof PrimeResponse)){
-            fail("Expected returned object to be of type \"PrimeResponse\"");
-        }
-        return (PrimeResponse) actualResponseObject;
+        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        assertArrayEquals(expectedPrimes, actualPrimes);
     }
 }
