@@ -5,14 +5,14 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class PrimeResponse {
-    private final long[] numbers;
+    private final int[] numbers;
 
     @JsonCreator
-    public PrimeResponse(long[] numbers){
+    public PrimeResponse(int[] numbers){
         this.numbers = numbers;
     }
 
-    public long[] getNumbers(){
+    public int[] getNumbers(){
         return numbers;
     }
 

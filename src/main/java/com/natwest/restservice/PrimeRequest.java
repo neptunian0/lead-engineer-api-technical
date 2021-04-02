@@ -16,16 +16,16 @@ public class PrimeRequest {
     private long id;
 
     @Min(value = 2, message = "Input cannot be less than 2")
-    private final long number;
+    private final int number;
     // private boolean xml;
     // private String algorithm;
 
     @JsonCreator
-    public PrimeRequest(long number){
+    public PrimeRequest(int number){
         this.number = number;
     }
 
-    public long getNumber(){
+    public int getNumber(){
         return number;
     }
 }
