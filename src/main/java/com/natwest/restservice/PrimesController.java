@@ -14,9 +14,8 @@ public class PrimesController {
     @PostMapping(path = "/primes")
     @ResponseBody
     public ResponseEntity<PrimeResponse> primes(@Valid @RequestBody PrimeRequest primeRequest){
-        int[] primesArray = {2};
         List<Integer> primesList = findPrimeNumbers(primeRequest.getNumber());
-        PrimeResponse primeResponse = new PrimeResponse(primesArray);
+        PrimeResponse primeResponse = new PrimeResponse(primesList);
         return ResponseEntity.ok()
                 .body(primeResponse);
     }
