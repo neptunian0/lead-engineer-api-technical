@@ -1,19 +1,9 @@
 package com.natwest.restservice;
 
-public class Primes {
-    private final long count;
-    private final long[] primes;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-    public Primes(long count, long[] primes){
-        this.count = count;
-        this.primes = primes;
-    }
-
-    public long getCount(){
-        return count;
-    }
-
-    public long[] getPrimes(){
-        return primes;
-    }
+public interface Primes {
+    List<Integer> getPrimes(int n);
 }

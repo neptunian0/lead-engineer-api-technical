@@ -3,21 +3,21 @@ package com.natwest.restservice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PrimesControllerTest {
+    private EratosthenesPrimes eratosthenesPrimes;
+
     @BeforeEach
-    void setUp(){ } //TODO: Fill in for integration test
+    void setUp(){
+        eratosthenesPrimes = new EratosthenesPrimes();
+    }
 
     @Test
     void negative() {
         int n = -1;
         Integer[] expectedPrimes = {};
-        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
         assertArrayEquals(expectedPrimes, actualPrimes);
     }
 
@@ -25,7 +25,7 @@ class PrimesControllerTest {
     void belowMin() {
         int n = 1;
         Integer[] expectedPrimes = {};
-        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
         assertArrayEquals(expectedPrimes, actualPrimes);
     }
 
@@ -33,7 +33,7 @@ class PrimesControllerTest {
     void first() {
         int n = 2;
         Integer[] expectedPrimes = {2};
-        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
         assertArrayEquals(expectedPrimes, actualPrimes);
     }
 
@@ -41,7 +41,7 @@ class PrimesControllerTest {
     void firstEight() {
         int n = 30;
         Integer[] expectedPrimes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
-        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
         assertArrayEquals(expectedPrimes, actualPrimes);
     }
 
@@ -60,7 +60,7 @@ class PrimesControllerTest {
                 419, 421, 431, 433, 439, 443, 449, 457, 461, 463,
                 467, 479, 487, 491, 499, 503, 509, 521, 523, 541
         };
-        Object[] actualPrimes = PrimesController.findPrimeNumbers(n).toArray();
+        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
         assertArrayEquals(expectedPrimes, actualPrimes);
     }
 }
