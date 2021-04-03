@@ -11,10 +11,10 @@ import java.util.*;
 
 @RestController
 public class PrimesController {
-    @PostMapping(path = "/primes")
+    @GetMapping(path = "/api/primes/{n}")
     @ResponseBody
-    public ResponseEntity<PrimeResponse> primes(@Valid @RequestBody PrimeRequest primeRequest){
-        List<Integer> primesList = findPrimeNumbers(primeRequest.getNumber());
+    public ResponseEntity<PrimeResponse> primes(@PathVariable int n){
+        List<Integer> primesList = findPrimeNumbers(n);
         PrimeResponse primeResponse = new PrimeResponse(primesList);
         return ResponseEntity.ok()
                 .body(primeResponse);
