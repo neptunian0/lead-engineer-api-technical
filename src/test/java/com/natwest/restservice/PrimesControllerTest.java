@@ -15,7 +15,7 @@ class PrimesControllerTest {
 
     @Test
     void negative() {
-        int n = -1;
+        int n = -5;
         Integer[] expectedPrimes = {};
         Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
         assertArrayEquals(expectedPrimes, actualPrimes);

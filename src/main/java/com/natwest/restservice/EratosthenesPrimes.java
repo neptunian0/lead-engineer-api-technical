@@ -14,6 +14,11 @@ public class EratosthenesPrimes implements Primes{
     @Override
     @Cacheable("primes")
     public List<Integer> getPrimes(int n){
+        //protect against negative inputs; outputs an empty list
+        if(n < 0){
+            n = 0;
+        }
+
         // initialize the array with "true", index denotes the numbers from 0 to n.
         boolean[] primes = new boolean[n + 1];
         Arrays.fill(primes, true);
