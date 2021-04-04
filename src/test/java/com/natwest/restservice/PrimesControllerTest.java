@@ -7,42 +7,40 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PrimesControllerTest {
     private EratosthenesPrimes eratosthenesPrimes;
+    private SundaramPrimes sundaramPrimes;
 
     @BeforeEach
     void setUp(){
         eratosthenesPrimes = new EratosthenesPrimes();
+        sundaramPrimes = new SundaramPrimes();
     }
 
     @Test
     void negative() {
-        int n = -1;
+        int n = -5;
         Integer[] expectedPrimes = {};
-        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
-        assertArrayEquals(expectedPrimes, actualPrimes);
+        checkAlgorithms(expectedPrimes, n);
     }
 
     @Test
     void belowMin() {
         int n = 1;
         Integer[] expectedPrimes = {};
-        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
-        assertArrayEquals(expectedPrimes, actualPrimes);
+        checkAlgorithms(expectedPrimes, n);
     }
 
     @Test
     void first() {
         int n = 2;
         Integer[] expectedPrimes = {2};
-        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
-        assertArrayEquals(expectedPrimes, actualPrimes);
+        checkAlgorithms(expectedPrimes, n);
     }
 
     @Test
-    void firstEight() {
+    void firstTen() {
         int n = 30;
         Integer[] expectedPrimes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
-        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
-        assertArrayEquals(expectedPrimes, actualPrimes);
+        checkAlgorithms(expectedPrimes, n);
     }
 
     @Test
@@ -60,7 +58,13 @@ class PrimesControllerTest {
                 419, 421, 431, 433, 439, 443, 449, 457, 461, 463,
                 467, 479, 487, 491, 499, 503, 509, 521, 523, 541
         };
-        Object[] actualPrimes = eratosthenesPrimes.getPrimes(n).toArray();
-        assertArrayEquals(expectedPrimes, actualPrimes);
+        checkAlgorithms(expectedPrimes, n);
+    }
+
+    void checkAlgorithms(Integer[] expectedPrimes, int n){
+        Object[] eratosthenesPrimesActual = eratosthenesPrimes.getPrimes(n).toArray();
+        Object[] sundaramPrimesActual = sundaramPrimes.getPrimes(n).toArray();
+        assertArrayEquals(expectedPrimes, eratosthenesPrimesActual);
+        assertArrayEquals(expectedPrimes, sundaramPrimesActual);
     }
 }
