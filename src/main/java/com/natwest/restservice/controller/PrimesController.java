@@ -1,12 +1,13 @@
-package com.natwest.restservice;
+package com.natwest.restservice.controller;
 
+import com.natwest.restservice.dto.PrimeResponse;
+import com.natwest.restservice.model.EratosthenesPrimes;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.*;
 
 @RestController

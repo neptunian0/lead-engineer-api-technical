@@ -1,4 +1,4 @@
-package com.natwest.restservice;
+package com.natwest.restservice.dto;
 
 import java.util.List;
 
