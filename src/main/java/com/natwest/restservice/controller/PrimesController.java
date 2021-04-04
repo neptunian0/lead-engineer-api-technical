@@ -23,9 +23,9 @@ public class PrimesController {
         Primes atkin = new AtkinPrimes();
         Primes sundaram = new SundaramPrimes();
 
-        algorithms.put("eratosthenes", eratosthenes);
-        algorithms.put("atkin", atkin);
-        algorithms.put("sundaram", sundaram);
+        algorithms.put(eratosthenes.getAlgorithmName(), eratosthenes);
+        algorithms.put(atkin.getAlgorithmName(), atkin);
+        algorithms.put(sundaram.getAlgorithmName(), sundaram);
     }
 
     @GetMapping(path = "/api/primes/{n}")
@@ -34,9 +34,11 @@ public class PrimesController {
                                                 @RequestParam(name="algorithm",
                                                         required=false,
                                                         defaultValue="eratosthenes") String algorithm){
+        algorithm = algorithm.toLowerCase();
         if(!algorithms.containsKey(algorithm)) throw new AlgorithmNotFoundException();
-        List<Integer> primesList = algorithms.get(algorithm).getPrimes(n);
-        PrimeResponse primeResponse = new PrimeResponse(primesList);
+        Primes primes = algorithms.get(algorithm);
+        List<Integer> primesList = primes.getPrimes(n);
+        PrimeResponse primeResponse = new PrimeResponse(primes.getAlgorithmName(), primesList);
         return ResponseEntity.ok()
                 .body(primeResponse);
     }

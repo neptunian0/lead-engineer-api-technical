@@ -9,6 +9,10 @@ import java.util.List;
 
 @Component
 public class EratosthenesPrimes extends Primes{
+    public EratosthenesPrimes(){
+        super("eratosthenes");
+    }
+
     // generating the list of prime numbers from 2 to the given number
     // using the Sieve of Eratosthenes algorithm
     @Override
