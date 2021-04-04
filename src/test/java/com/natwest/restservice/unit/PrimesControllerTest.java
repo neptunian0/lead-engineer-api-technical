@@ -1,5 +1,8 @@
-package com.natwest.restservice;
+package com.natwest.restservice.unit;
 
+import com.natwest.restservice.model.AtkinPrimes;
+import com.natwest.restservice.model.EratosthenesPrimes;
+import com.natwest.restservice.model.SundaramPrimes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,11 +11,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class PrimesControllerTest {
     private EratosthenesPrimes eratosthenesPrimes;
     private SundaramPrimes sundaramPrimes;
+    private AtkinPrimes atkinPrimes;
 
     @BeforeEach
     void setUp(){
         eratosthenesPrimes = new EratosthenesPrimes();
         sundaramPrimes = new SundaramPrimes();
+        atkinPrimes = new AtkinPrimes();
     }
 
     @Test
@@ -33,6 +38,13 @@ class PrimesControllerTest {
     void first() {
         int n = 2;
         Integer[] expectedPrimes = {2};
+        checkAlgorithms(expectedPrimes, n);
+    }
+
+    @Test
+    void firstTwo() {
+        int n = 3;
+        Integer[] expectedPrimes = {2, 3};
         checkAlgorithms(expectedPrimes, n);
     }
 
@@ -64,7 +76,10 @@ class PrimesControllerTest {
     void checkAlgorithms(Integer[] expectedPrimes, int n){
         Object[] eratosthenesPrimesActual = eratosthenesPrimes.getPrimes(n).toArray();
         Object[] sundaramPrimesActual = sundaramPrimes.getPrimes(n).toArray();
+        Object[] atkinPrimesActual = atkinPrimes.getPrimes(n).toArray();
+
         assertArrayEquals(expectedPrimes, eratosthenesPrimesActual);
         assertArrayEquals(expectedPrimes, sundaramPrimesActual);
+        assertArrayEquals(expectedPrimes, atkinPrimesActual);
     }
 }
