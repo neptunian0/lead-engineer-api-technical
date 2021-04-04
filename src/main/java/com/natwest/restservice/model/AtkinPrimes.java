@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AtkinPrimes implements Primes{
+public class AtkinPrimes extends Primes{
     // generating the list of prime numbers from 2 to the given number
     // using the Sieve of Atkin algorithm
     @Override

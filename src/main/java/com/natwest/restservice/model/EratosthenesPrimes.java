@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class EratosthenesPrimes implements Primes{
+public class EratosthenesPrimes extends Primes{
     // generating the list of prime numbers from 2 to the given number
     // using the Sieve of Eratosthenes algorithm
     @Override
