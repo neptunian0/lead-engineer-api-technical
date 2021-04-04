@@ -1,4 +1,4 @@
-package com.natwest.restservice;
+package com.natwest.restservice.model;
 
 import org.springframework.cache.annotation.Cacheable;
 
@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SundaramPrimes implements Primes{
+    // generating the list of prime numbers from 2 to the given number
+    // using the Sieve of Sundaram algorithm
     @Override
     @Cacheable("primes")
     public List<Integer> getPrimes(int n) {

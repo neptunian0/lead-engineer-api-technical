@@ -1,4 +1,4 @@
-package com.natwest.restservice;
+package com.natwest.restservice.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;

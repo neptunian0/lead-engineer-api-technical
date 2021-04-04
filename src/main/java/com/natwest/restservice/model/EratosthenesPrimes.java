@@ -1,4 +1,4 @@
-package com.natwest.restservice;
+package com.natwest.restservice.model;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
