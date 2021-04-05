@@ -51,6 +51,9 @@ being changed: <br/>
 The Swagger documentation for the remote copy of this API can be found at: <br/>
 `https://lead-engineer-api-technical.azurewebsites.net/swagger-ui/`
 
+Note: This endpoint has been provisioned using a Developer level tier on Azure, so the warm up time from a cold start
+can sometimes take a minute or two.
+
 ## Testing
 Unit and integration tests have been included. They can be run using your favourite Java IDE.
 
