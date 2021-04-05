@@ -49,7 +49,10 @@ being changed: <br/>
 `https://lead-engineer-api-technical.azurewebsites.net/api/primes/{n}`
 
 The Swagger documentation for the remote copy of this API can be found at: <br/>
-`https://lead-engineer-api-technical.azurewebsites.net/swagger-ui/` 
+`https://lead-engineer-api-technical.azurewebsites.net/swagger-ui/`
+
+## Testing
+Unit and integration tests have been included. They can be run using your favourite Java IDE.
 
 ## Assumptions
 Here is where a few assumptions about the desired outcome are documented, they are as follows:
@@ -66,3 +69,4 @@ They include:
 1. Utilise enums for specifying the algorithm
 2. When algorithm isn't specified, select best performing one for a given value `n`
 3. Figure out the maximum safe value of `n`
+4. Improvements in documentation for testing
