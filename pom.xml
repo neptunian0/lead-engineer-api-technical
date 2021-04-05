@@ -15,7 +15,6 @@
 	<description>Technical assessment for the Lead Engineer API position in NatWest Group.</description>
 	<properties>
 		<java.version>11</java.version>
-		<io.springfox.version>3.0.0</io.springfox.version>
 	</properties>
 	<dependencies>
 		<dependency>
