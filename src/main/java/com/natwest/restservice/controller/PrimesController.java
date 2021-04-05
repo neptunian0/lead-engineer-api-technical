@@ -6,6 +6,7 @@ import com.natwest.restservice.model.AtkinPrimes;
 import com.natwest.restservice.model.EratosthenesPrimes;
 import com.natwest.restservice.model.Primes;
 import com.natwest.restservice.model.SundaramPrimes;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -28,6 +29,11 @@ public class PrimesController {
         algorithms.put(sundaram.getAlgorithmName(), sundaram);
     }
 
+    @ApiOperation(value = "Get the list of prime numbers up to and including input {n}.",
+            notes = "The Sieve algorithm can be specified using the query parameter \"algorithm\", by supplying the " +
+                    "values \"eratosthenes\", \"atkin\", or \"sundaram\". The input value of \"n\" can be negative, " +
+                    "but an empty list will be returned. If no algorithm is specified, will default to " +
+                    "\"eratosthenes\". Invalid (e.g. misspelled) algorithm names will return a 404 Not Found response")
     @GetMapping(path = "/api/primes/{n}")
     @ResponseBody
     public ResponseEntity<PrimeResponse> primes(@PathVariable int n,
