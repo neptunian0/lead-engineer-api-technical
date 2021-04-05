@@ -15,6 +15,7 @@
 	<description>Technical assessment for the Lead Engineer API position in NatWest Group.</description>
 	<properties>
 		<java.version>11</java.version>
+		<io.springfox.version>3.0.0</io.springfox.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -61,6 +62,13 @@
 					<artifactId>hamcrest-core</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<!-- swagger for api documentation and rest client generation -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
 		</dependency>
     </dependencies>
 
